@@ -8,6 +8,8 @@ steps:
   environment:
     A_SECRET:
       from_secret: a_secret
+    HTTP_PROXY=10.0.24.3:8123
+    HTTPS_PROXY=10.0.24.3:8123
   commands:
   - echo $$A_SECRET
   - go run . > test_secret.txt

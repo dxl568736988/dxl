@@ -6,8 +6,6 @@ steps:
 - name: build
   image: golang
   environment:
-    HTTPS_PROXY: 10.0.24.3:8123
-    HTTP_PROXY: 10.0.24.3:8123
     A_SECRET:
       from_secret: a_secret
       

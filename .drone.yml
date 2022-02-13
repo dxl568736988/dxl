@@ -12,3 +12,20 @@ steps:
   - echo $$A_SECRET
   - go run . > test_secret.txt
   - cat test_secret.txt
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: build
+  image: golang
+  environment:
+    HTTPS_PROXY: 10.0.24.3:8123
+    HTTP_PROXY: 10.0.24.3:8123
+    A_SECRET:
+      from_secret: a_secret
+      
+  commands:
+  - echo $$A_SECRET
+  - go run . > test_secret.txt
+  - cat test_secret.txt
